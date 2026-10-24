@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KADAK — Chai, reimagined.</title>
+  <meta name="description" content="KADAK is cold-brew masala chai in a can. Brewed 12 hours, spiced by hand, made for the city." />
+  <meta name="theme-color" content="#f4ead9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-cup"><span></span><span></span><span></span></div>
+    <p>Brewing<span class="dots">…</span></p>
+  </div>
+
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="logo" href="#hero">KADAK<span lang="hi">कड़क</span></a>
+    <nav class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#spices">Spice Lab</a>
+      <a href="#flavours">Flavours</a>
+      <a href="#city">The City</a>
+    </nav>
+    <a class="btn btn-small" href="#order">Order now</a>
+  </header>
+
+  <!-- 01 HERO: the kulhad cracks, the can rises -->
+  <section id="hero" data-chapter="The Crack">
+    <div class="hero-sticky">
+      <h1 class="hero-title">
+        <span class="line">Chai,</span>
+        <span class="line italic">reimagined.</span>
+      </h1>
+      <div class="hero-big" aria-hidden="true">STILL KADAK.</div>
+      <div class="hero-meta left">
+        <span>Cold-brew masala chai</span>
+        <span>Brewed 12 hrs · Spiced by hand</span>
+      </div>
+      <div class="hero-meta right">
+        <span class="scroll-hint">Scroll to crack it open <i>↓</i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 STORY -->
+  <section id="story" class="panel" data-chapter="Tapri to Tin">
+    <div class="wrap split">
+      <div class="copy reveal">
+        <p class="eyebrow">02 — From tapri to tin</p>
+        <h2>The chai you grew up on. <em>Now it travels.</em></h2>
+        <p>Every city has that one tapri. The steel kettle that never cools, the glass that's too hot to hold, the bhaiya who knows your order.</p>
+        <p>We spent two years trying to put that feeling in a can. Real Assam leaf, cold-brewed for twelve hours, hand-pounded spices, whole milk. No powder, no shortcuts, no "chai-flavoured" anything.</p>
+        <div class="stats">
+          <div><strong>12<small>hrs</small></strong><span>cold brew</span></div>
+          <div><strong>7</strong><span>whole spices</span></div>
+          <div><strong>0</strong><span>preservatives</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 SPICE LAB -->
+  <section id="spices" class="panel" data-chapter="Spice Lab">
+    <div class="wrap split reverse">
+      <div class="copy">
+        <p class="eyebrow reveal">03 — The spice lab</p>
+        <h2 class="reveal">Every spice has <em>a home address.</em></h2>
+        <div class="spice-grid">
+          <article class="spice reveal"><b>Assam CTC</b><span>Dibrugarh, Assam</span><p>Malty, bold, the backbone of every cup.</p></article>
+          <article class="spice reveal"><b>Green Elaichi</b><span>Idukki, Kerala</span><p>Pods cracked the morning we brew.</p></article>
+          <article class="spice reveal"><b>Adrak</b><span>Wayanad, Kerala</span><p>Fresh-pressed for that throat-warming kick.</p></article>
+          <article class="spice reveal"><b>Dalchini</b><span>Malabar Coast</span><p>Sweet warmth without a gram of extra sugar.</p></article>
+          <article class="spice reveal"><b>Kali Mirch</b><span>Malabar Coast</span><p>A slow heat that shows up at the end.</p></article>
+          <article class="spice reveal"><b>Laung</b><span>Kanyakumari, TN</span><p>Just two cloves per batch. Trust us.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 FLAVOURS -->
+  <section id="flavours" class="panel" data-chapter="Flavours">
+    <div class="wrap flav">
+      <div class="flav-head reveal">
+        <p class="eyebrow">04 — Pick your kadak</p>
+        <h2>Five ways <em>to take it.</em></h2>
+      </div>
+      <div class="flav-info">
+        <p class="flav-hi" id="flavHi" lang="hi">मसाला</p>
+        <h3 id="flavName">Classic Masala</h3>
+        <p id="flavDesc">The OG. Assam leaf, elaichi, adrak, dalchini. Tastes like 5pm at the corner tapri.</p>
+        <p class="flav-notes" id="flavNotes">Strong · Spiced · Medium sweet</p>
+      </div>
+      <div class="flav-pills" id="flavPills" role="tablist" aria-label="Flavours"></div>
+    </div>
+  </section>
+
+  <!-- 05 CITY -->
+  <section id="city" class="panel dark" data-chapter="The City">
+    <div class="wrap">
+      <p class="eyebrow reveal">05 — Made for the city</p>
+      <h2 class="reveal">No tapri nearby? <em>Carry one.</em></h2>
+      <div class="city-grid">
+        <article class="city-card reveal">
+          <time>07:42 AM</time><h4>Mumbai</h4>
+          <p>Virar fast, window seat. One hand on the rail, one on a can of Adrak Kick.</p>
+        </article>
+        <article class="city-card reveal">
+          <time>10:30 AM</time><h4>Bengaluru</h4>
+          <p>Standup ran long. Again. Cold Brew Latte, straight from the office fridge.</p>
+        </article>
+        <article class="city-card reveal">
+          <time>04:15 PM</time><h4>Delhi</h4>
+          <p>December fog outside, Kashmiri Kahwa in hand. Warm it for 40 seconds and you're fine.</p>
+        </article>
+        <article class="city-card reveal">
+          <time>06:50 PM</time><h4>Pune</h4>
+          <p>Leg day done. Elaichi Gold, 6g protein, zero guilt on the ride home.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 ORDER -->
+  <section id="order" class="panel" data-chapter="Order">
+    <div class="wrap split">
+      <div class="copy order-box reveal">
+        <p class="eyebrow">06 — Get it home</p>
+        <h2>Build your <em>crate.</em></h2>
+
+        <p class="label">Flavour</p>
+        <div class="chips" id="orderFlav"></div>
+
+        <p class="label">Pack size</p>
+        <div class="chips" id="orderPack">
+          <button class="chip" data-pack="6" data-price="449">6 cans</button>
+          <button class="chip active" data-pack="12" data-price="849">12 cans <small>save 10%</small></button>
+          <button class="chip" data-pack="24" data-price="1599">24 cans <small>save 16%</small></button>
+        </div>
+
+        <div class="total">
+          <div>
+            <span class="label">Total</span>
+            <strong id="orderTotal">₹849</strong>
+            <small id="orderPer">₹71 per can · free delivery in metros</small>
+          </div>
+          <a class="btn btn-wa" id="orderWa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2l-.5-.3Z"/></svg>
+            Order on WhatsApp
+          </a>
+        </div>
+        <p class="also">Also on <b>Blinkit</b> · <b>Swiggy Instamart</b> · <b>Zepto</b> in Mumbai, Pune, Bengaluru, Delhi NCR, Hyderabad &amp; Chennai.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-big">KADAK<span lang="hi">कड़क</span></div>
+      <div class="foot-row">
+        <p>Brewed in Pune. Drunk everywhere.</p>
+        <p>@drinkkadak</p>
+        <p class="concept">Concept project · fictional brand</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="hud" aria-hidden="true">
+    <span class="hud-dot"></span>
+    <span id="hudIdx">01 / 06</span>
+    <span id="hudName">The Crack</span>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
